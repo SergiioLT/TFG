@@ -1,0 +1,1 @@
+import{j as e}from"./app-CLgohU7R.js";function s({className:r="",...o}){return e.jsx("input",{...o,type:"checkbox",className:"rounded dark:bg-oldwest-gold border-gray-300 dark:border-gray-700 text-oldwest-red shadow-sm focus:ring-oldwest-red dark:focus:ring-oldwest-red dark:focus:ring-offset-gray-800 "+r})}export{s as C};
