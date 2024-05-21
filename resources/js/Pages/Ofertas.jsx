@@ -81,18 +81,18 @@ export default function Ofertas(props) {
         <PrincipalLayout
             auth={props.auth}
             header={
-                <h2 className="font-semibold text-3xl text-black dark:text-black leading-tight">
+                <h2 className="font-semibold text-3xl text-white dark:text-white leading-tight">
                     Ofertas
                 </h2>
             }
         >
-            <div className="bg-oldwest-sand max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 rounded-lg shadow-lg">
+            <div className="bg-oldwest-brown max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 rounded-lg shadow-lg">
                 {/* Bloque de Ofertas Personalizadas */}
-                <h3 className="text-3xl font-bold mb-4 text-black dark:text-black pt-10">
+                <h3 className="text-3xl font-bold mb-4 text-white dark:text-white pt-10">
                     Ofertas Personalizadas
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 p-6">
-                    <div className="bg-white p-4 rounded-lg shadow-md">
+                    <div className="bg-oldwest-sand p-4 rounded-lg shadow-md">
                         <h3 className="text-xl font-bold mb-2 text-gray-900">
                             Cupón de Reseña
                         </h3>
@@ -108,7 +108,7 @@ export default function Ofertas(props) {
                             </button>
                         )}
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-md">
+                    <div className="bg-oldwest-sand p-4 rounded-lg shadow-md">
                         <h3 className="text-xl font-bold mb-2 text-gray-900">
                             Cupón de Reserva
                         </h3>
@@ -129,16 +129,16 @@ export default function Ofertas(props) {
                 </div>
             </div>
 
-            <div className="bg-oldwest-sand max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 rounded-lg shadow-lg">
+            <div className="bg-oldwest-brown max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 rounded-lg shadow-lg">
                 {/* Bloque de Ofertas Estándar */}
-                <h3 className="text-3xl font-bold mb-4 text-bkack dark:text-black pt-10">
+                <h3 className="text-3xl font-bold mb-4 text-white dark:text-white pt-10">
                     Ofertas Estándar
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 p-6">
                     {props.ofertas.map((oferta) => (
                         <div
                             key={oferta.id}
-                            className="bg-white shadow-md rounded-lg overflow-hidden transform transition-all hover:scale-105"
+                            className="bg-oldwest-sand shadow-md rounded-lg overflow-hidden transform transition-all hover:scale-105"
                         >
                             <div className="p-4">
                                 <h3 className="text-xl font-bold mb-2 text-gray-900">

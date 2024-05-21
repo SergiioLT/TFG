@@ -193,11 +193,6 @@ export default function Reservas(props) {
                 </div>
                 <div className="reservas-poster">
                     <div className="reservas-container">
-                        {props.auth.user && (
-                            <p className="reserva-info xl:text-xl lg:text-lg">
-                                Tus reservas:
-                            </p>
-                        )}
                         {props.reservas &&
                             props.reservas.map((reserva) => (
                                 <div

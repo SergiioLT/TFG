@@ -17,10 +17,11 @@ export default forwardRef(function TextInput(
             {...props}
             type={type}
             className={
-                "border-gray-300 dark:border-gray-700 dark:bg-oldwest-gold dark:text-white focus:border-oldwest-red dark:focus:border-oldwest-red focus:ring-oldwest-red dark:focus:ring-oldwest-red rounded-md shadow-sm " +
+                "border-gray-700 dark:border-gray-700 bg-oldwest-gold dark:bg-oldwest-gold text-white dark:text-white focus:border-oldwest-red dark:focus:border-oldwest-red focus:ring-oldwest-red dark:focus:ring-oldwest-red rounded-md shadow-sm " +
                 className
             }
             ref={input}
+            style={{ backgroundColor: "#c2a878 !important" }}
         />
     );
 });

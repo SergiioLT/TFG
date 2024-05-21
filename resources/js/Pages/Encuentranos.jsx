@@ -28,11 +28,11 @@ export default function Inicio(props) {
                 </h2>
             }
         >
-            {/*}
+            {/*
             <div className="py-12">
                 <div className="max-w-7xl min-h-full mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white dark:bg-oldwest-brown overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900 dark:text-gray-100">
+                    <div className="bg-oldwest-brown dark:bg-oldwest-brown overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-6 text-gray-100 dark:text-gray-100">
                             Google Map
                             <LoadScript googleMapsApiKey="AIzaSyBTolgXG4EphMPbRIIyyY2l0WwqXuVhnl0">
                                 <GoogleMap
