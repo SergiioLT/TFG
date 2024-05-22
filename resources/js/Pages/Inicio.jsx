@@ -87,12 +87,32 @@ export default function Inicio(props) {
                     className="sm:w-1/3 bg-cover bg-bottom min-h-80 flex justify-end text-center flex-col"
                     style={{
                         backgroundImage:
+                            "url('/images/desayuno-del-pistolero.png')",
+                    }}
+                >
+                    <div className="text-white text-lg p-4">
+                        <Link
+                            href={route("menus.index", {
+                                category: "desayunos",
+                            })}
+                            className="inline-block bg-red-600 text-white  py-2 px-4 rounded hover:bg-red-700 transition duration-300"
+                        >
+                            Desayunos ⬈
+                        </Link>
+                    </div>
+                </div>
+                <div
+                    className="sm:w-1/3 bg-cover bg-bottom min-h-80 flex justify-end text-center flex-col"
+                    style={{
+                        backgroundImage:
                             "url('/images/fiesta-de-la-frontera.png')",
                     }}
                 >
                     <div className="text-white text-lg  p-4">
                         <Link
-                            href={route("productos.index")}
+                            href={route("menus.index", {
+                                category: "entrantes",
+                            })}
                             className="inline-block bg-red-600 text-white  py-2 px-4 rounded hover:bg-red-700 transition duration-300"
                         >
                             Entrantes ⬈
@@ -107,26 +127,12 @@ export default function Inicio(props) {
                 >
                     <div className="text-white text-lg p-4">
                         <Link
-                            href={route("productos.index")}
+                            href={route("menus.index", {
+                                category: "primeros",
+                            })}
                             className="inline-block bg-red-600 text-white  py-2 px-4 rounded hover:bg-red-700 transition duration-300"
                         >
                             Primeros ⬈
-                        </Link>
-                    </div>
-                </div>
-                <div
-                    className="sm:w-1/3 bg-cover bg-bottom min-h-80 flex justify-end text-center flex-col"
-                    style={{
-                        backgroundImage:
-                            "url('/images/desayuno-del-pistolero.png')",
-                    }}
-                >
-                    <div className="text-white text-lg p-4">
-                        <Link
-                            href={route("productos.index")}
-                            className="inline-block bg-red-600 text-white  py-2 px-4 rounded hover:bg-red-700 transition duration-300"
-                        >
-                            Desayunos ⬈
                         </Link>
                     </div>
                 </div>

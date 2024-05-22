@@ -46,7 +46,7 @@ const ModalMenu = ({ menu, onClose }) => {
                 <ul>
                     {menu.platos.map((plato) => (
                         <li key={plato.plato_id}>
-                            <p className="leading-relaxed p-3">
+                            <div className="leading-relaxed p-3">
                                 <b>{plato.nombre}</b> - {plato.descripcion}
                                 <ul>
                                     {uniqueAllergens(plato).map(
@@ -63,7 +63,7 @@ const ModalMenu = ({ menu, onClose }) => {
                                         )
                                     )}
                                 </ul>
-                            </p>
+                            </div>
                         </li>
                     ))}
                 </ul>

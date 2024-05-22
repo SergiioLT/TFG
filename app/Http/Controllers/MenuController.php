@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Log;
 
 class MenuController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $category = $request->input('category', 'desayunos'); // Valor por defecto 'desayuno' si no se proporciona 'category'
         $menus = Menu::with(['platos.ingredientes.alergenos'])->get();
-        Log::debug('Menus data:', $menus->toArray());
-        return Inertia::render('Productos', ['menus' => $menus]);
+        return Inertia::render('Productos', ['menus' => $menus, 'category' => $category]);
     }
 }

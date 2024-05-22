@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('menu_id');
             $table->string('nombre');
             $table->text('descripcion');
+            $table->string('tipo_menu');
             $table->decimal('precio', 10, 2);
             $table->string('URL')->nullable();
             $table->timestamps();

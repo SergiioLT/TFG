@@ -44,10 +44,10 @@ export default function PrincipalLayout({ auth, header, children }) {
                                     Inicio
                                 </NavLink>
                                 <NavLink
-                                    href={route("productos.index")}
-                                    active={route().current("productos.index")}
+                                    href={route("menus.index")}
+                                    active={route().current("menus.index")}
                                 >
-                                    Productos
+                                    Menús
                                 </NavLink>
                                 <NavLink
                                     href={route("ofertas.index")}
@@ -106,12 +106,10 @@ export default function PrincipalLayout({ auth, header, children }) {
                                         Inicio
                                     </ResponsiveNavLink>
                                     <ResponsiveNavLink
-                                        href={route("productos.index")}
-                                        active={route().current(
-                                            "productos.index"
-                                        )}
+                                        href={route("menus.index")}
+                                        active={route().current("menus.index")}
                                     >
-                                        Productos
+                                        Menús
                                     </ResponsiveNavLink>
                                     <ResponsiveNavLink
                                         href={route("ofertas.index")}

@@ -42,6 +42,7 @@ class HandleInertiaRequests extends Middleware
                     'message' => $request->session()->get('message'),
                     'conflict' => $request->session()->get('conflict'),
                     'error' => $request->session()->get('error'),
+                    'twitter_url' => $request->session()->get('twitter_url'),
                 ];
             },
         ]);

@@ -20,13 +20,34 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Admin User',
-            'email' => 'test@admin.com',
+            'email' => 'admin@test.com',
             'password' => Hash::make('123'),
         ]);
 
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+        ]);
+
+        User::factory()->create([
+            'name' => 'Sergio Lucena',
+            'email' => 'test@test.com',
+            'password' => Hash::make('123'),
+        ]);
+        User::factory()->create([
+            'name' => 'Manu Casas',
+            'email' => 'aniversario@test.com',
+            'password' => Hash::make('123'),
+        ]);
+        User::factory()->create([
+            'name' => 'Angel Ortiz',
+            'email' => 'reserva@test.com',
+            'password' => Hash::make('123'),
+        ]);
+        User::factory()->create([
+            'name' => 'Eliza Tellez',
+            'email' => 'vuelta@test.com',
+            'password' => Hash::make('123'),
         ]);
 
         $this->call(MenusTableSeeder::class);

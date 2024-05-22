@@ -8,6 +8,8 @@ use App\Http\Controllers\OpinionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservaController;
 use App\Models\Opinion;
+use Illuminate\Http\Request;
+
 
 use Inertia\Inertia;
 
@@ -29,6 +31,7 @@ Route::get('/inicio', function () {
 
 Route::get('/ofertas', [OfertaController::class, 'index'])->name('ofertas.index');
 Route::post('/utilizar-cupon', [OfertaController::class, 'utilizarCupon']);
+Route::post('/share/twitter', [OfertaController::class, 'shareOnTwitter'])->middleware('auth');
 
 
 Route::get('/Encuentranos', function () {
@@ -48,7 +51,7 @@ Route::post('/reservas', [ReservaController::class, 'store'])->middleware('auth'
 Route::delete('/reservas/{reserva}', [ReservaController::class, 'destroy'])->middleware('auth');
 
 
-Route::get('/productos', [MenuController::class, 'index'])->name('productos.index');
+Route::get('/menus', [MenuController::class, 'index'])->name('menus.index');
 
 Route::get('/inicio', [OpinionController::class, 'index'])->name('inicio');
 Route::post('/inicio', [OpinionController::class, 'store'])->name('opiniones.store');

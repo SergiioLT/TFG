@@ -9,7 +9,7 @@ class Menu extends Model
 {
     protected $table = 'menus';
     protected $primaryKey = 'menu_id';
-    protected $fillable = ['nombre', 'descripcion', 'precio', 'URL'];
+    protected $fillable = ['nombre', 'descripcion', 'tipo_menu', 'precio', 'URL'];
 
     public function platos()
     {

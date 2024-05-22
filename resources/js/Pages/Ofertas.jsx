@@ -1,5 +1,3 @@
-// resources/js/Pages/Ofertas.jsx
-
 import PrincipalLayout from "@/Layouts/PrincipalLayout";
 import { Head } from "@inertiajs/react";
 import React, { useState, useEffect } from "react";
@@ -32,14 +30,21 @@ export default function Ofertas(props) {
         }
     };
 
+    const shareOnTwitter = () => {
+        axios
+            .post("/share/twitter")
+            .then((response) => {
+                window.open(response.data.twitterUrl, "_blank");
+                window.location.reload(); // Esto recargará la página actual
+            })
+            .catch((errors) => {
+                console.error("Error compartiendo en Twitter:", errors);
+            });
+    };
+
     const ahora = new Date();
     const inicioMes = new Date(ahora.getFullYear(), ahora.getMonth(), 1);
     const finMes = new Date(ahora.getFullYear(), ahora.getMonth() + 1, 0);
-
-    // Mostrar ofertasPersonalizadas en la consola
-    useEffect(() => {
-        console.log("ofertasPersonalizadas:", props.ofertasPersonalizadas);
-    }, [props.ofertasPersonalizadas]);
 
     // Verificar si hay un cupón de reseña del mes actual
     const cuponResena = props.ofertasPersonalizadas.find(
@@ -49,20 +54,20 @@ export default function Ofertas(props) {
             new Date(cupon.valido_desde).getFullYear() === ahora.getFullYear()
     );
 
-    // Mostrar cuponResena en la consola
-    useEffect(() => {
-        console.log("cuponResena:", cuponResena);
-        console.log(
-            "props.ofertasPersonalizadas:",
-            props.ofertasPersonalizadas
-        );
-    }, [cuponResena, props.ofertasPersonalizadas]);
+    // Verificar si hay un cupón de compartir del mes actual
+    const cuponCompartir = props.ofertasPersonalizadas.find(
+        (cupon) =>
+            cupon.tipo === "compartir" &&
+            new Date(cupon.valido_desde).getMonth() === ahora.getMonth() &&
+            new Date(cupon.valido_desde).getFullYear() === ahora.getFullYear()
+    );
 
     const cuponReserva = props.ofertasPersonalizadas.find(
         (cupon) => cupon.tipo === "reserva" && !cupon.utilizado
     );
 
     let mensajeCuponResena;
+    let mensajeCuponCompartir;
 
     if (cuponResena) {
         if (cuponResena.utilizado) {
@@ -72,6 +77,18 @@ export default function Ofertas(props) {
         }
     } else {
         mensajeCuponResena = "Crea una reseña para obtener este cupón!";
+    }
+
+    if (cuponCompartir) {
+        if (cuponCompartir.utilizado) {
+            mensajeCuponCompartir = `Ya has usado el cupón de compartir este mes. Podrás crear otro a partir del ${finMes.toLocaleDateString()}.`;
+        } else {
+            mensajeCuponCompartir =
+                "Haz clic para utilizar tu cupón de compartir.";
+        }
+    } else {
+        mensajeCuponCompartir =
+            "Comparte nuestra página en Twitter para obtener este cupón!";
     }
 
     const reservasNoUtilizadas = props.reservasNoUtilizadas || 0;
@@ -120,6 +137,30 @@ export default function Ofertas(props) {
                         {cuponReserva && !cuponReserva.utilizado && (
                             <button
                                 onClick={() => handleCuponClick(cuponReserva)}
+                                className="bg-oldwest-brown text-white px-4 py-2 rounded-lg"
+                            >
+                                Utilizar Cupón
+                            </button>
+                        )}
+                    </div>
+                    <div className="bg-oldwest-sand p-4 rounded-lg shadow-md">
+                        <h3 className="text-xl font-bold mb-2 text-gray-900">
+                            Cupón de Compartir
+                        </h3>
+                        <p className="text-gray-700 mb-4">
+                            {mensajeCuponCompartir}
+                        </p>
+                        {!cuponCompartir && (
+                            <button
+                                onClick={shareOnTwitter}
+                                className="bg-oldwest-brown text-white px-4 py-2 rounded-lg"
+                            >
+                                Compartir en Twitter
+                            </button>
+                        )}
+                        {cuponCompartir && !cuponCompartir.utilizado && (
+                            <button
+                                onClick={() => handleCuponClick(cuponCompartir)}
                                 className="bg-oldwest-brown text-white px-4 py-2 rounded-lg"
                             >
                                 Utilizar Cupón
